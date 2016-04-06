@@ -1,0 +1,35 @@
+.eds-categories {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.eds-category {
+	margin-bottom: 30px;
+}
+.eds-category h4 {
+	margin-bottom: 15px;
+}
+.eds-category li {
+	border: none;
+	margin-bottom: 5px;
+	padding: 0;
+}
+
+.doc-heading {
+	border-bottom: 1px solid #ddd
+
+}
+.doc-body {
+	margin: 15px 0 30px;
+}
+@media (min-width: 782px) {
+	.doc-body ul {
+		-moz-column-count: 2;
+		-moz-column-gap: 30px;
+		-webkit-column-count: 2;
+		-webkit-gap: 30px;
+		column-count: 2;
+		column-gap: 30px;
+	}
+}
