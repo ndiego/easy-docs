@@ -1,19 +1,19 @@
 .eds-categories {
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 16px;
 }
 
-.eds-category {
-	margin-bottom: 30px;
-}
-.eds-category h4 {
+
+.eds-widget h4 {
 	margin-bottom: 15px;
 }
-.eds-category li {
-	border: none;
-	margin-bottom: 5px;
-	padding: 0;
+
+
+.eds-documentation-home {
+	border-top: 1px solid #e1e1e8;
+	margin-top: 30px;
+	padding-top: 15px;
 }
 
 .doc-heading {

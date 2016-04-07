@@ -185,6 +185,12 @@ class Easy_Docs {
 			// Ajax stuff for the search form
 			wp_enqueue_script( 'ajax-search', plugins_url( 'assets/js/ajax-search.js', $this->file ), array( 'jquery' ), '1.0.0', true );
 			wp_localize_script( 'ajax-search', 'SearchTerm', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+			
+        }
+        
+        if ( is_singular() && get_post_type() == 'easy_docs' ){
+        
+        	wp_enqueue_script( 'single-frontend-scripts', plugins_url( 'assets/js/single.js', $this->file ), array( 'jquery' ), '1.0.0', true );
         }
     }
     

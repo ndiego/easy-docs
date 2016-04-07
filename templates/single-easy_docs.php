@@ -37,7 +37,7 @@ add_action( 'genesis_after_header', 'genesis_do_breadcrumbs' );
 remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 
 // Print the documentation categories and all their associated docs in the sidebar
-add_action( 'genesis_sidebar', 'eds_print_sidebar', 1 );
+//add_action( 'genesis_sidebar', 'eds_print_sidebar', 1 );
 function eds_print_sidebar() {
 
 	$current_doc = get_the_title();
@@ -87,6 +87,73 @@ function eds_print_sidebar() {
 		}
 	}
 }
+
+
+add_action( 'genesis_sidebar', 'eds_print_toc', 2 );
+function eds_print_toc() {
+	?>
+	<section class="widget eds-widget eds-toc">
+		<div class="widget-wrap">
+			<h4 class="widget-title widgettitle"><?php _e( 'Table of Contents', 'easy-docs' ); ?></h4>
+			<div class="eds-menu-container">
+				<ol class="menu">
+				</ol>
+			</div>
+		</div>
+	</section>
+
+	<?php
+}
+
+
+// Print the documentation categories and all their associated docs in the sidebar
+add_action( 'genesis_sidebar', 'eds_print_selected_sidebar', 2 );
+function eds_print_selected_sidebar() {
+
+	$current_doc = get_the_title();
+	
+	$categories = get_the_terms( get_the_ID(), 'eds_category' );
+	
+	foreach( $categories as $category ) {
+		
+		$args = array(
+			'post_type' => 'easy_docs',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'eds_category',
+					'field'    => 'slug',
+					'terms'    => $category->slug,
+				),
+			),
+			'orderby'   => 'menu_order', 
+			'order'     => 'ASC',
+		);
+		
+		$docs = new WP_Query( $args );
+		
+		if ( ! empty ( $docs ) ) {
+			?>
+			<section id="eds_category_<?php echo $category->slug; ?>" class="widget eds-widget eds-category">
+				<div class="widget-wrap">
+					<h4 class="widget-title widgettitle"><?php echo $category->name; ?></h4>
+					<div class="eds-menu-container">
+						<ul class="menu">
+							<?php while ( $docs->have_posts() ) : $docs->the_post(); ?>
+							<li class="menu-item <?php echo $current_doc == get_the_title() ? 'current_menu_item' : ''; ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+							<?php endwhile; ?>
+						</ul>
+					</div>
+					<div class="eds-documentation-home">
+						<a href="/documentation"><?php _e( 'All Documentation', 'easy-docs' ); ?></a>
+					</div>
+				</div>
+			</section>
+			<?php
+		}
+	}
+}
+
+
 
 // Remove the entry header content
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
