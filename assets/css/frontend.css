@@ -54,15 +54,23 @@
 	padding: 30px;
 }
 
-
 .submit-search {
 	background-color: transparent;
+	border-radius: none;
+	color: #2e2f33;
 	position: absolute;
-	right:20px;
-	color: black;
+	right: 0;
+	top: 4px;
 	font-size: 30px;
 	height: 50px;
-	width:50px
+	width: 50px;
+	padding: 0;
+	outline:none
+}
+
+.submit-search:hover {
+	background-color: transparent;
+	color: #0197F1;
 }
 
 
@@ -76,6 +84,11 @@
 	font-size: 17px;
 }
 
+
+.post-type-archive-easy_docs .page-title h1 {
+	margin-bottom: 25px;
+}
+
 .post-type-archive-easy_docs .site-inner {
 	background-color: #fff;
 	max-width: 100%;
@@ -86,7 +99,10 @@
 }
 
 
-
+.screenshot {
+	width: 90%;
+	border: 10px solid #f1f1f1;
+}
 
 
 @media (min-width: 782px) {

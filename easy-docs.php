@@ -266,12 +266,12 @@ class Easy_Docs {
 		}	
 		
 		$search_text = __( 'Search Documentation...', 'easy-docs' );
-		$onfocus     = " onfocus=\"if (this.value == '$search_text') {this.value = '';}\"";
-		$onblur      = " onblur=\"if (this.value == '') {this.value = '$search_text';}\"";
+		//$onfocus     = " onfocus=\"if (this.value == '$search_text') {this.value = '';}\"";
+		//$onblur      = " onblur=\"if (this.value == '') {this.value = '$search_text';}\"";
 		$docs_form = '
 		<div id="search_container">
 			<form>
-			<input type="text" placeholder="'. $search_text .'" name="s"'. $onfocus . $onblur .' />
+			<input type="text" placeholder="'. $search_text .'" name="s" />
 			<input type="hidden" name="post_type" value="easy_docs" />
 			<span id="submit_search" ></span>
 			<button type="submit" class="dashicons dashicons-search submit-search" value="" />
