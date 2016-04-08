@@ -16,7 +16,7 @@ function eds_open_post_title() {
 	
 	$categories = get_the_terms( $post->ID, 'eds_category' );
 	
-	echo '<span class="eds-categories">';
+	echo '<span class="title-categories">';
 
 	foreach ( $categories as $category ) { 
 		echo $category->name . ' '; 
@@ -143,7 +143,7 @@ function eds_print_selected_sidebar() {
 							<?php endwhile; ?>
 						</ul>
 					</div>
-					<div class="eds-documentation-home">
+					<div class="documentation-home">
 						<a href="/documentation"><?php _e( 'All Documentation', 'easy-docs' ); ?></a>
 					</div>
 				</div>

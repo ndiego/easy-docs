@@ -208,13 +208,11 @@ class Easy_Docs {
 
 		ob_start();
 		?>
-		<h2><?php printf( __( 'Search Results for "%s"', 'easy_docs' ), '<strong>' . $query . '</strong>' ); ?></h2>
+		<div class="search-results-wrapper">
+		<h3><?php printf( __( 'Search Results for "%s"', 'easy_docs' ), '<strong>' . $query . '</strong>' ); ?></h3>
 
 			<?php
 			if ( $search->have_posts() ) {
-				?>
-				<div class="search-results-wrapper">
-				<?php
 				while ( $search->have_posts() ) : $search->the_post();
 			
 					$categories = get_the_terms( get_the_ID(), 'eds_category' );
@@ -228,17 +226,14 @@ class Easy_Docs {
 				
 					?>
 					<article class="search-result"> 			
-						<h3>
-							<span class="categories"><?php echo $category_string; ?><span>
+						<h4>
+							<?php echo $category_string; ?> <span class="dashicons dashicons-arrow-right-alt2"></span>
 							<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-						</h3>
+						</h4>
 						<p><?php echo get_the_excerpt();?></p>
 					</article>
 					<?php
 				endwhile;
-				?>
-				</div>
-				<?php
 			} else {
 				?>
 				<div class="no-search-results">
@@ -246,6 +241,9 @@ class Easy_Docs {
 				</div>
 				<?php
 			}
+		?>
+		</div>
+		<?php
 		$content = ob_get_clean();
 
 		echo $content;
@@ -271,11 +269,12 @@ class Easy_Docs {
 		$onfocus     = " onfocus=\"if (this.value == '$search_text') {this.value = '';}\"";
 		$onblur      = " onblur=\"if (this.value == '') {this.value = '$search_text';}\"";
 		$docs_form = '
-		<div id="search-container">
+		<div id="search_container">
 			<form>
 			<input type="text" placeholder="'. $search_text .'" name="s"'. $onfocus . $onblur .' />
 			<input type="hidden" name="post_type" value="easy_docs" />
-			<input type="submit" value="'. $button_text .'" />
+			<span id="submit_search" ></span>
+			<button type="submit" class="dashicons dashicons-search submit-search" value="" />
 			</form>
 		</div>
 		';

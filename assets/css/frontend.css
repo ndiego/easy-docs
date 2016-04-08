@@ -1,30 +1,96 @@
-.eds-categories {
+.title-categories {
     text-transform: uppercase;
+    font-family: 'Montserrat', san-serif;
     font-weight: 400;
     font-size: 16px;
 }
 
 
-.eds-widget h4 {
-	margin-bottom: 15px;
-}
-
-
-.eds-documentation-home {
-	border-top: 1px solid #e1e1e8;
+.documentation-home {
+	border-top: 1px solid #dbdbdb;
 	margin-top: 30px;
 	padding-top: 15px;
 }
 
-.doc-heading {
-	border-bottom: 1px solid #ddd
 
+
+
+#search_container,
+#search_results {
+	max-width: 1000px;
+	margin: 0 auto;
+	position: relative;
 }
-.doc-body {
+#search_results h3 {
+	margin-bottom: 25px;
+}
+#search_results h4 {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+#search_results .dashicons {
+	line-height: 1.2;
+	font-size: 18px;
+}
+#search_results p {
+	font-size: 15px;
+	line-height: 1.5;
+	padding: 0;
+	margin: 0
+}
+.search-results-wrapper {
+	padding: 60px 0 60px;
+}
+.search-result {
+	background: #fff;
+	padding: 30px;
+	margin-bottom: 30px;
+}
+.search-result:last-child {
+	margin-bottom: 0;
+}
+.no-search-results {
+	background: #fff;
+	padding: 30px;
+}
+
+
+.submit-search {
+	background-color: transparent;
+	position: absolute;
+	right:20px;
+	color: black;
+	font-size: 30px;
+	height: 50px;
+	width:50px
+}
+
+
+
+.documentation-wrapper h3 {
+	border-bottom: 1px solid #dbdbdb;
+	padding-bottom: 15px;
+}
+.documentation-body {
 	margin: 15px 0 30px;
+	font-size: 17px;
 }
+
+.post-type-archive-easy_docs .site-inner {
+	background-color: #fff;
+	max-width: 100%;
+	width: 100%;
+}
+.post-type-archive-easy_docs .site-inner .wrap {
+	background-color: #fff;
+}
+
+
+
+
+
 @media (min-width: 782px) {
-	.doc-body ul {
+	.documentation-body ul {
 		-moz-column-count: 2;
 		-moz-column-gap: 30px;
 		-webkit-column-count: 2;
@@ -33,3 +99,14 @@
 		column-gap: 30px;
 	}
 }
+
+
+@media only screen and (max-width: 782px) {
+	
+	.search-results-wrapper {
+		width: 100%;
+		padding: 60px 6%;
+	}
+	
+}
+

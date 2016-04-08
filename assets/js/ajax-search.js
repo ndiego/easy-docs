@@ -1,4 +1,4 @@
-jQuery(document).on( 'submit', '#search-container form', function() {
+jQuery(document).on( 'submit', '#search_container form', function() {
     var $form = jQuery(this);
     var $input = $form.find('input[name="s"]');
     var query = $input.val().trim();

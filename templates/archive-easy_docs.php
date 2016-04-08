@@ -53,11 +53,11 @@ function eds_print_categories() {
 		
 		if ( ! empty ( $docs ) ) {
 			?>
-			<div class="doc-wrapper category-<?php echo $category->slug; ?>">
-				<div class="doc-heading">
-					<h4><?php echo $category->name; ?></h4>
+			<div class="documentation-wrapper category-<?php echo $category->slug; ?>">
+				<div class="documentation-heading">
+					<h3><?php echo $category->name; ?></h3>
 				</div>
-				<div class="doc-body">
+				<div class="documentation-body">
 					<ul>
 						<?php while ( $docs->have_posts() ) : $docs->the_post(); ?>
 						<li>
